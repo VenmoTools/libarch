@@ -1,0 +1,32 @@
+[package]
+name = "libarch"
+version = "0.1.0"
+authors = ["620719882@qq.com <venmosnake@yeah.net>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+paste = "0.1.5"
+bit = "0.1.1"
+multiboot2 = "0.8.2"
+bit_field = "0.10.0"
+
+[dependencies.cast]
+version = "0.2.2"
+default-features = false
+
+[dependencies.raw-cpuid]
+version = "7.0.3"
+
+[dependencies.bitflags]
+version = "1.2.1"
+
+[dependencies.lazy_static]
+version = "1.0"
+features = ["spin_no_std"]
+
+[dependencies.xmas-elf]
+version = "0.6.2"
+
