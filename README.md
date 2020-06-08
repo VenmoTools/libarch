@@ -13,9 +13,14 @@ rustc 1.45.0-nightly (2454a68cf 2020-05-04)
 + port operation
 + MSR chip sets instruction
 + x86 call convention
-+ Register instruction such as `CR0`,`CR2`,`CR3`,`CR4`,`RFLAGS`,``
++ Register instruction such as `CR0`,`CR2`,`CR3`,`CR4`,`RFLAGS`
++ Programmable Interval Timer such as `8253`
+
 ### x86
 not support right now! coming soon
+
+## devices
++ Pci local bus
 
 ## ARM
 not support right now!  coming soon

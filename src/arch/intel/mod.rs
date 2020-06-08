@@ -6,6 +6,7 @@ pub mod instructions;
 pub mod chips;
 pub mod call_convention;
 pub mod interrupt;
+pub mod timer;
 
 pub trait DescriptorTable {
     fn load();
