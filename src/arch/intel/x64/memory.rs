@@ -54,6 +54,7 @@ impl MemoryArea {
     pub fn size(&self) -> u64 {
         self.length
     }
+
     pub fn start_address(&self) -> u64 {
         self.start_addr
     }

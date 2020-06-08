@@ -1,7 +1,7 @@
 pub use phys::{NoInvalidPhysAddr, PhysAddr};
 pub use virt::{NoCanonicalAddr, VirtAddr};
 
-use crate::arch::intel::Arch;
+use crate::arch::intel::ArchIntel;
 
 mod virt;
 mod phys;
@@ -22,7 +22,7 @@ pub fn align_up(addr: u64, align: u64) -> u64 {
     }
 }
 
-pub trait VirtualAddress<A: Arch> {
+pub trait VirtualAddress<A: ArchIntel> {
     type BITS;
 
     /// 将虚拟地址结构转为u64类型
@@ -48,7 +48,7 @@ pub trait VirtualAddress<A: Arch> {
 }
 
 
-pub trait PhysicalAddress<A: Arch> {
+pub trait PhysicalAddress<A: ArchIntel> {
     type BITS;
 
     fn as_u64(self) -> u64;

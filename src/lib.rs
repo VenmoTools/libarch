@@ -13,3 +13,4 @@ extern crate alloc;
 pub mod arch;
 pub mod macros;
 pub mod result;
+pub mod devices;

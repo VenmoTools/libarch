@@ -53,26 +53,26 @@ impl PrivilegedLevel {
     }
 }
 
-pub trait Arch {
+pub trait ArchIntel {
     const BIT: u64;
     const DISPLAY_STR: &'static str;
 }
 
 pub struct IntelX32;
 
-impl Arch for IntelX32 {
+impl ArchIntel for IntelX32 {
     const BIT: u64 = 32;
     const DISPLAY_STR: &'static str = "Intel x32";
 }
 
 pub struct IntelX64;
 
-impl Arch for IntelX64 {
+impl ArchIntel for IntelX64 {
     const BIT: u64 = 64;
     const DISPLAY_STR: &'static str = "Intel x64";
 }
 
-pub trait TablePointer<A: Arch = IntelX64> {
+pub trait TablePointer<A: ArchIntel = IntelX64> {
     fn limit(&self) -> u16;
 
     fn base(&self) -> u64;

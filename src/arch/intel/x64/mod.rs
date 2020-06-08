@@ -2,7 +2,7 @@ use core::marker::PhantomData;
 
 use bit_field::BitField;
 
-use crate::arch::intel::{Arch, PrivilegedLevel, Selector, TablePointer};
+use crate::arch::intel::{ArchIntel, PrivilegedLevel, Selector, TablePointer};
 
 pub mod address;
 pub mod paging;
@@ -61,7 +61,7 @@ impl Selector for SegmentSelector {
 /// 用于将GDT，IDT等描述符保存为指针形式
 #[derive(Copy)]
 #[repr(C, packed)]
-pub struct DescriptorTablePointer<A: Arch> {
+pub struct DescriptorTablePointer<A: ArchIntel> {
     /// 描述符段限长
     limit: u16,
     /// 描述符的内存裸指针
@@ -70,7 +70,7 @@ pub struct DescriptorTablePointer<A: Arch> {
 }
 
 
-impl<A: Arch> Clone for DescriptorTablePointer<A> {
+impl<A: ArchIntel> Clone for DescriptorTablePointer<A> {
     fn clone(&self) -> Self {
         DescriptorTablePointer {
             limit: { self.limit },
@@ -80,7 +80,7 @@ impl<A: Arch> Clone for DescriptorTablePointer<A> {
     }
 }
 
-impl<A: Arch> TablePointer for DescriptorTablePointer<A> {
+impl<A: ArchIntel> TablePointer for DescriptorTablePointer<A> {
     fn limit(&self) -> u16 {
         self.limit
     }
@@ -90,7 +90,7 @@ impl<A: Arch> TablePointer for DescriptorTablePointer<A> {
     }
 }
 
-impl<A: Arch> DescriptorTablePointer<A> {
+impl<A: ArchIntel> DescriptorTablePointer<A> {
     const ARCH: u64 = A::BIT;
     pub fn empty() -> Self {
         Self {
