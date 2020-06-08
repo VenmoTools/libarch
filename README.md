@@ -26,10 +26,10 @@ not support right now! coming soon
 not support right now!  coming soon
 
 # Build tools
-The build tool is `[xbuild](https://github.com/rust-osdev/cargo-xbuild)`
+The build tool is [xbuild](https://github.com/rust-osdev/cargo-xbuild)
 ## install
 ```
-$ cargo install xbuild
+$ cargo install cargo-xbuild
 ```
 ## build
 before build you need write a json file like [x86_64-unknown-none.json](x86_64-unknown-none.json)
